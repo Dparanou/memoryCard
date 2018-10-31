@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
-  Board b;
+  Board board;
 
   public Game (int x, int y, int times) {
-    b = new Board(x,y, times);
+    board = new Board(x,y, times);
 
     while (!shouldFinish()) {
-      b.prettyPrint();
+      board.prettyPrint();
       System.out.println("Κάνε μια προσπάθεια!");
 
       int[] coords = getCoordinates();
-      if (b.tryMatch(coords[0], coords[1], coords[2], coords[3])) {
+      if (board.tryMatch(coords[0], coords[1], coords[2], coords[3])) {
         System.out.println("Τα πέτυχες :)");
       }
       else {
@@ -49,6 +49,6 @@ public class Game {
   }
 
   public boolean shouldFinish() {
-    return b.allCardsExposed();
+    return board.allCardsExposed();
   }
 }

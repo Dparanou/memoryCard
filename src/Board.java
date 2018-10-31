@@ -27,6 +27,7 @@ public class Board {
     }
 
     public void generateNew(int occurences) {
+      System.out.println("Calling generate random");
       ArrayList<Card> cards = new ArrayList<>();
       int cardsCount = (int) (size[0] * size[1]) / occurences;
 
@@ -55,7 +56,7 @@ public class Board {
     public void prettyPrint() {
       for (int i = 0; i < size[0]; ++i) {
         for (int j = 0; j < size[1]; ++j) {
-          System.out.print(board[i][j].get());
+          System.out.print(board[i][j].print());
           System.out.print("    ");
         }
         System.out.println();

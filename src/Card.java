@@ -11,9 +11,13 @@ public class Card {
         this.letter = letter;
     }
 
-    public char get() {
-      // return exposed ? this.letter : "*".charAt(0);
-      return exposed ? "*".charAt(0) : this.letter;
+    public char print() {
+      return exposed ? this.letter : "*".charAt(0);
+      // return exposed ? "*".charAt(0) : this.letter;
+    }
+
+    public char getLetter() {
+      return this.letter;
     }
 
     public void expose() {
@@ -45,7 +49,7 @@ public class Card {
       ArrayList<Character> letters = new ArrayList<Character>();
 
       for (Card c : cards) {
-        letters.add(c.get());
+        letters.add(c.getLetter());
       }
 
       return letters;

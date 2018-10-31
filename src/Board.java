@@ -8,21 +8,22 @@ public class Board {
     private boolean exposed = false;
     private Card[][] board;
 
-    public Board(int x, int y) {
+    public Board(int x, int y, int occurences) {
       this.size = new int[]{x, y};
       this.board = new Card[x][y];
 
-      this.generateNew();
+      this.generateNew(occurences);
     }
 
-    public void generateNew() {
+    public void generateNew(int occurences) {
       ArrayList<Card> cards = new ArrayList<>();
       int cardsCount = (int) (size[0] * size[1]) / 2;
 
       for (int i = 0; i < cardsCount; ++i) {
         Card c = Card.generateRandom(cards);
-        cards.add(c);
-        cards.add(c);
+        for (int j = 0; j < occurences; ++j) {
+          cards.add(c);
+        }
       }
 
       Collections.shuffle(cards);
@@ -45,6 +46,18 @@ public class Board {
         System.out.println();
         System.out.println();
       }
+    }
+
+    public boolean tryMatch(int x1, int y1, int x2, int y2) {
+      boolean match = board[x1][y1].get() == board[x2][y2].get();
+
+      if (match) {
+        board[x1][y1].expose();
+        board[x2][y2].expose();
+
+        return true;
+      }
+      return false;
     }
 
     public void expose() {

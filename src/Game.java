@@ -29,7 +29,6 @@ public class Game {
     System.out.println("Το παιχνίδι τελείωσε! Το τελείωσες σε " + count + " κινήσεις.");
   }
 
-
   public int[] getCoordinateData(String userMessage) {
     Scanner scanner = new Scanner(System.in);
     String choice;

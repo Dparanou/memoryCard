@@ -28,7 +28,7 @@ public class Board {
 
     public void generateNew(int occurences) {
       ArrayList<Card> cards = new ArrayList<>();
-      int cardsCount = (int) (size[0] * size[1]) / 2;
+      int cardsCount = (int) (size[0] * size[1]) / occurences;
 
       for (int i = 0; i < cardsCount; ++i) {
         Card c = Card.generateRandom(cards);

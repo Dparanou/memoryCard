@@ -10,9 +10,22 @@ package memorycard;
  * @author dimitra
  */
 public class Card {
-    private int number;
+    private String letter;
+    private boolean exposed = false;
 
-    public Card(int n) {
-        number = n;
+    public Card(String letter) {
+        this.letter = letter;
+    }
+
+    public String getCard() {
+      return exposed ? "-" : this.letter;
+    }
+
+    public void expose() {
+      this.exposed = true;
+    }
+
+    public boolean equals(Card c) {
+      return this.letter == c.letter;
     }
 }

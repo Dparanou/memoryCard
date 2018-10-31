@@ -15,6 +15,18 @@ public class Board {
       this.generateNew(occurences);
     }
 
+    public boolean allCardsExposed() {
+      for (int i = 0; i < size[0]; ++i) {
+        for (int j = 0; j < size[1]; ++j) {
+          if (!board[i][j].isExposed()) {
+            return false;
+          }
+        }
+      }
+
+      return true;
+    }
+
     public void generateNew(int occurences) {
       ArrayList<Card> cards = new ArrayList<>();
       int cardsCount = (int) (size[0] * size[1]) / 2;
@@ -57,6 +69,7 @@ public class Board {
 
         return true;
       }
+
       return false;
     }
 

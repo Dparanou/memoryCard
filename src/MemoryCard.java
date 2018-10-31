@@ -31,15 +31,15 @@ public class MemoryCard {
 
           switch(i) {
                   case 1 :
-                    g = new Game(4,6,0);
+                    g = new Game(4,6,2);
                     break;
 
                   case 2 :
-                    g = new Game(6,8,0);
+                    g = new Game(6,8,2);
                     break;
 
                   case 3 :
-                    g = new Game(6,6,0);
+                    g = new Game(6,6,3);
                     break;
 
                   case 4 :
@@ -53,7 +53,5 @@ public class MemoryCard {
         }
 
       } while (i != 4 );
-
-
     }
 }

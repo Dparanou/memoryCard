@@ -12,7 +12,8 @@ public class Card {
     }
 
     public char get() {
-      return exposed ? "-".charAt(0) : this.letter;
+      // return exposed ? this.letter : "*".charAt(0);
+      return exposed ? "*".charAt(0) : this.letter;
     }
 
     public void expose() {

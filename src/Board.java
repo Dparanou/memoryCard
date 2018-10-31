@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class Board {
     private int[] size;
-    private boolean exposed = false;
     private Card[][] board;
 
     public Board(int x, int y, int occurences) {
@@ -49,6 +48,10 @@ public class Board {
       }
     }
 
+    public boolean verifyCoordinates(int x, int y) {
+      return x >= 0 && x < size[0] && y >= 0 && y < size[1];
+    }
+
     public void prettyPrint() {
       for (int i = 0; i < size[0]; ++i) {
         for (int j = 0; j < size[1]; ++j) {
@@ -61,9 +64,7 @@ public class Board {
     }
 
     public boolean tryMatch(int x1, int y1, int x2, int y2) {
-      boolean match = board[x1][y1].get() == board[x2][y2].get();
-
-      if (match) {
+      if (board[x1][y1].equals(board[x2][y2])) {
         board[x1][y1].expose();
         board[x2][y2].expose();
 
@@ -71,9 +72,5 @@ public class Board {
       }
 
       return false;
-    }
-
-    public void expose() {
-      this.exposed = true;
     }
 }

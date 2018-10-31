@@ -1,4 +1,3 @@
-
 package memorycard;
 
 import java.util.Random;
@@ -13,7 +12,7 @@ public class Card {
     }
 
     public char get() {
-      return exposed ? "a".charAt(0) : this.letter;
+      return exposed ? "-".charAt(0) : this.letter;
     }
 
     public void expose() {

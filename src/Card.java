@@ -19,6 +19,10 @@ public class Card {
       this.exposed = true;
     }
 
+    public boolean isExposed() {
+      return this.exposed;
+    }
+
     public boolean equals(Card c) {
       return this.letter == c.letter;
     }

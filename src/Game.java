@@ -7,15 +7,24 @@ import java.util.Scanner;
 public class Game {
   Board b;
 
-
   public Game (int x, int y, int times) {
-    b = new Board(x,y);
+    b = new Board(x,y, times);
 
-    getCons();
+    while (!shouldFinish()) {
+      b.prettyPrint();
+      System.out.println("Κάνε μια προσπάθεια!");
 
+      int[] coords = getCoordinates();
+      if (b.tryMatch(coords[0], coords[1], coords[2], coords[3])) {
+        System.out.println("Τα πέτυχες :)");
+      }
+      else {
+        System.out.println("Aπέτυχες :(");
+      }
+    }
   }
 
-  public void getCons() {
+  public void getCoordinates() {
       Scanner s = new Scanner(System.in);
 
       System.out.print("Δώσε την γραμμή και την στήλη της 1 κάρτας: ");
@@ -32,7 +41,9 @@ public class Game {
       for(int i = 0 ; i < cons.length ; i++) {
         System.out.print(cons[i]);
       }
-
   }
 
+  public boolean shouldFinish() {
+    return b.allCardsExposed();
+  }
 }

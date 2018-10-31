@@ -11,4 +11,8 @@ package memorycard;
  */
 public class Card {
     private int number;
+
+    public Card(int n) {
+        number = n;
+    }
 }

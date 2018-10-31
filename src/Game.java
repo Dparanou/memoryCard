@@ -65,6 +65,10 @@ public class Game {
       int[] coords1 = getCoordinateData("Δώσε την γραμμή και την στήλη της 1 κάρτας:");
       int[] coords2 = getCoordinateData("Δώσε την γραμμή και την στήλη της 2 κάρτας:");
 
+      if (coords1[0] == coords2[0] && coords1[1] == coords2[1]) {
+        System.out.println("Bitch Please");
+      }
+
       int[] allCoordinates = {coords1[0], coords1[1], coords2[0], coords2[1]};
 
       return allCoordinates;

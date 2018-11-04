@@ -13,20 +13,23 @@ public class Game {
     board = new Board(x,y, times);
     int count = 0;
 
+    board.prettyPrint();
     while (!shouldFinish()) {
       ++count;
-      board.prettyPrint();
       System.out.println("Κάνε μια προσπάθεια!");
 
       int[] coords = getCoordinates();
       if (board.tryMatch(coords[0], coords[1], coords[2], coords[3])) {
         System.out.println("Τα πέτυχες :)");
+        board.prettyPrint();
       }
       else {
         System.out.println("Aπέτυχες :(");
         try {
+          board.prettyPrint2();
           Thread.sleep(2000);
-          System.out.print("\033[H\033[2J");
+          clearScreen();
+          board.prettyPrint();
         }
         catch( InterruptedException e) {
           System.err.println(e.getMessage());
@@ -100,4 +103,9 @@ public class Game {
   public boolean shouldFinish() {
     return board.allCardsExposed();
   }
+
+  public static void clearScreen() {
+    System.out.print("\033[H\033[2J");
+    System.out.flush();
+}
 }

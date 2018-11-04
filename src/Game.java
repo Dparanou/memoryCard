@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Arrays;
+import java.util.Date;
 
 public class Game {
   Board board;
@@ -23,6 +24,13 @@ public class Game {
       }
       else {
         System.out.println("Aπέτυχες :(");
+        try {
+          Thread.sleep(2000);
+          System.out.print("\033[H\033[2J");
+        }
+        catch( InterruptedException e) {
+          System.err.println(e.getMessage());
+        }
       }
     }
 

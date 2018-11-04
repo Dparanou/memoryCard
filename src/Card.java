@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Card {
     private char letter;
     private boolean exposed = false;
+    private boolean selected = false;
 
     public Card(char letter) {
         this.letter = letter;
@@ -15,9 +16,20 @@ public class Card {
       return exposed ? this.letter : "*".charAt(0);
       // return exposed ? "*".charAt(0) : this.letter;
     }
+    public char printLetters() {
+      return selected ? this.letter : "*".charAt(0);
+    }
 
     public char getLetter() {
       return this.letter;
+    }
+
+    public void setSelecedF() {
+      selected = false;
+    }
+
+    public void setSelecedT() {
+      selected = true;
     }
 
     public void expose() {

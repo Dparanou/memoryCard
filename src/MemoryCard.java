@@ -39,7 +39,7 @@ public class MemoryCard {
                     break;
 
                   case 3 :
-                    g = new Game(6,6,3);
+                    g = new Trio(6,6,3);
                     break;
 
                   case 4 :

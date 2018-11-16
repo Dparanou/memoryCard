@@ -16,7 +16,7 @@ public class Card {
       return exposed ? this.letter : "*".charAt(0);
       // return exposed ? "*".charAt(0) : this.letter;
     }
-    public char printLetters() {
+    public char printSelectedLetter() {
       return selected ? this.letter : "*".charAt(0);
     }
 

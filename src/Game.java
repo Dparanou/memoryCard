@@ -29,6 +29,7 @@ public class Game {
           board.prettyPrint2();
           Thread.sleep(2000);
           clearScreen();
+          board.setPointsF(coords[0], coords[1], coords[2], coords[3]);
           board.prettyPrint();
         }
         catch( InterruptedException e) {

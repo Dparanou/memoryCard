@@ -64,6 +64,17 @@ public class Board {
       }
     }
 
+    public void prettyPrint2() {
+      for (int i = 0; i < size[0]; ++i) {
+        for (int j = 0; j < size[1]; ++j) {
+          System.out.print(board[i][j].printSelectedLetter());
+          System.out.print("    ");
+        }
+        System.out.println();
+        System.out.println();
+      }
+    }
+
     public boolean tryMatch(int x1, int y1, int x2, int y2) {
       if (board[x1][y1].equals(board[x2][y2])) {
         board[x1][y1].expose();
@@ -71,7 +82,14 @@ public class Board {
 
         return true;
       }
+      board[x1][y1].setSelecedT();
+      board[x2][y2].setSelecedT();
 
       return false;
+    }
+
+    public void setPointsF(int x1, int y1, int x2, int y2) {
+      board[x1][y1].setSelecedF();
+      board[x2][y2].setSelecedF();
     }
 }

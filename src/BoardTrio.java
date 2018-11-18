@@ -1,3 +1,7 @@
+/*
+ * Η κλάση BoardTrio αποτελεί τον πίνακα για τον τρίτο τύπου παιχνιδιού, καθώς χρειάζεται να αντιμετωπίσει 3 συντεταγμένες κάθε
+ * φορά. Κληρονομεί από την κλάση Board, γι´αυτό υπάρχουν μόνο οι συναρτήσεις που είναι διαφορετικές.
+ */
 package memorycard;
 
 import java.util.Collections;
@@ -15,6 +19,7 @@ public class BoardTrio extends Board {
       this.generateNew(occurences);
     }
 
+    //Έλεγχος ισοδυναμίας 3 καρτών, έτσι ώστε να είναι μόνιμα εμφανείς. Διαφορετικά, επιλογή των καρτών για παροδική εμφάνιση.
     public boolean tryMatch(int x1, int y1, int x2, int y2, int x3, int y3) {
       if (board[x1][y1].equals(board[x2][y2]) && board[x1][y1].equals(board[x3][y3])) {
         board[x1][y1].expose();
@@ -31,6 +36,7 @@ public class BoardTrio extends Board {
       }
     }
 
+    ////Κλείσιμο τον επιλεγμένων καρτών
     public void setPointsF(int x1, int y1, int x2, int y2, int x3, int y3) {
         board[x1][y1].setSelecedF();
         board[x2][y2].setSelecedF();

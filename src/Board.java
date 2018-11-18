@@ -1,3 +1,7 @@
+/*
+ * Η κλάση Board αποτελεί τον πίνακα με τις κάρτες μας. Δημιουργεί, εμφανίζει και ελέγχει την ομοιότητα 2
+ * καρτών του πίνακα.
+ */
 package memorycard;
 
 import java.util.Collections;
@@ -26,8 +30,9 @@ public class Board {
       return true;
     }
 
+    //Δημιουργία πίνακα με τυχαία γράμματα και ανακάτεμα καρτών
     public void generateNew(int occurences) {
-      System.out.println("Calling generate random");
+      //System.out.println("Calling generate random");
       ArrayList<Card> cards = new ArrayList<>();
       int cardsCount = (int) (size[0] * size[1]) / occurences;
 
@@ -49,10 +54,12 @@ public class Board {
       }
     }
 
+    //Έλεγχος σωστών συντεταγμένων
     public boolean verifyCoordinates(int x, int y) {
       return x >= 0 && x < size[0] && y >= 0 && y < size[1];
     }
 
+    //Εμφάνιση του πίνακα με τις σωστά μαντεμένες κάρτες ανοιχτές και τις κλειστές που πρέπει να βρεθούν
     public void prettyPrint() {
       for (int i = 0; i < size[0]; ++i) {
         for (int j = 0; j < size[1]; ++j) {
@@ -64,6 +71,7 @@ public class Board {
       }
     }
 
+    //Εμφάνιση του πίνακα με τις κάρτες που έχουν επιλεγεί ανοιχτές
     public void prettyPrint2() {
       for (int i = 0; i < size[0]; ++i) {
         for (int j = 0; j < size[1]; ++j) {
@@ -75,6 +83,7 @@ public class Board {
       }
     }
 
+    //Έλεγχος ισοδυναμίας καρτών, έτσι ώστε να είναι μόνιμα εμφανείς. Διαφορετικά, επιλογή των καρτών για παροδική εμφάνιση.
     public boolean tryMatch(int x1, int y1, int x2, int y2) {
       if (board[x1][y1].equals(board[x2][y2])) {
         board[x1][y1].expose();
@@ -88,6 +97,7 @@ public class Board {
       return false;
     }
 
+    //Κλείσιμο τον επιλεγμένων καρτών
     public void setPointsF(int x1, int y1, int x2, int y2) {
       board[x1][y1].setSelecedF();
       board[x2][y2].setSelecedF();

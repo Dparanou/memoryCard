@@ -53,8 +53,13 @@ public class Trio extends Game {
       int[] coords2 = getCoordinateData("Δώσε την γραμμή και την στήλη της 2 κάρτας:");
       int[] coords3 = getCoordinateData("Δώσε την γραμμή και την στήλη της 3 κάρτας:");
 
-      if (coords1[0] == coords2[0] && coords2[0] == coords3[0] && coords1[1] == coords2[1] && coords2[1] ==coords3[1]) {
-        System.out.println("Ίδιες συντεταγμένες!");
+      while (coords1[0] == coords2[0] && coords2[0] == coords3[0] && coords1[1] == coords2[1] && coords2[1] ==coords3[1]) {
+        System.out.println("Not the same coordinates!");
+
+        coords1 = getCoordinateData("Δώσε την γραμμή και την στήλη της 1 κάρτας:");
+        coords2 = getCoordinateData("Δώσε την γραμμή και την στήλη της 2 κάρτας:");
+        coords3 = getCoordinateData("Δώσε την γραμμή και την στήλη της 3 κάρτας:");
+
       }
 
       int[] allCoordinates = {coords1[0], coords1[1], coords2[0], coords2[1], coords3[0], coords3[1]};

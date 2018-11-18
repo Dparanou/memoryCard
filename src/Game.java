@@ -81,8 +81,11 @@ public class Game {
       int[] coords1 = getCoordinateData("Δώσε την γραμμή και την στήλη της 1 κάρτας:");
       int[] coords2 = getCoordinateData("Δώσε την γραμμή και την στήλη της 2 κάρτας:");
 
-      if (coords1[0] == coords2[0] && coords1[1] == coords2[1]) {
+      while (coords1[0] == coords2[0] && coords1[1] == coords2[1]) {
         System.out.println("Ίδιες συντεταγμένες!");
+
+        coords1 = getCoordinateData("Δώσε την γραμμή και την στήλη της 1 κάρτας:");
+        coords2 = getCoordinateData("Δώσε την γραμμή και την στήλη της 2 κάρτας:");
       }
 
       int[] allCoordinates = {coords1[0], coords1[1], coords2[0], coords2[1]};
